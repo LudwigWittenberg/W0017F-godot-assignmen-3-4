@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3cw3m1eruo4w"]
+
+[ext_resource type="Texture2D" uid="uid://67uq8qsstvvq" path="res://assets/sprite/World Tiles/World_Tiles.png" id="1_yk6bu"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0clvx"]
+size = Vector2(44, 4)
+
+[node name="LogPlatform" type="AnimatableBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_yk6bu")
+region_enabled = true
+region_rect = Rect2(48.2122, 16.1338, 48.0119, 6.7089)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0clvx")
+one_way_collision = true

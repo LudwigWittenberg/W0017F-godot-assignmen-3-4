@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bhk4j2ibc1a8u"
+path="res://.godot/imported/I am utan v.mp3-ba2bda0f166296fe0260b294655db734.mp3str"
+
+[deps]
+
+source_file="res://assets/music/I am utan v.mp3"
+dest_files=["res://.godot/imported/I am utan v.mp3-ba2bda0f166296fe0260b294655db734.mp3str"]
+
+[params]
+
+loop=true
+loop_offset=0.0
+bpm=0.0
+beat_count=0
+bar_beats=4

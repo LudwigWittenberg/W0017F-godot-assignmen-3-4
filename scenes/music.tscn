@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://yh1bofvuct15"]
+
+[ext_resource type="AudioStream" uid="uid://bhk4j2ibc1a8u" path="res://assets/music/I am utan v.mp3" id="1_aymhv"]
+
+[node name="Music" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_aymhv")
+autoplay = true

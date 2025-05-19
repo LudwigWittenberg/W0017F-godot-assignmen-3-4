@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://trnmdi4rwdyf"]
+
+[ext_resource type="Texture2D" uid="uid://67uq8qsstvvq" path="res://assets/sprite/World Tiles/World_Tiles.png" id="1_lfnuf"]
+[ext_resource type="Script" path="res://scripts/pressure_plate.gd" id="1_nhgfr"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lx71b"]
+atlas = ExtResource("1_lfnuf")
+region = Rect2(96, 80, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ke8u7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lx71b")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8pb8t"]
+size = Vector2(10, 3)
+
+[node name="PressurePlate" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_nhgfr")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ke8u7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 6.5)
+shape = SubResource("RectangleShape2D_8pb8t")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

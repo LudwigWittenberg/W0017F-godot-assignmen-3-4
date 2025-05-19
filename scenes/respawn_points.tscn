@@ -1,0 +1,62 @@
+[gd_scene load_steps=10 format=3 uid="uid://ckhvyfvsby2jl"]
+
+[ext_resource type="Script" path="res://scripts/respawn_points.gd" id="1_hambx"]
+[ext_resource type="Texture2D" uid="uid://d3pldqo0vkchm" path="res://assets/sprite/Flag/Flag.png" id="1_sk8nh"]
+[ext_resource type="AudioStream" uid="uid://cx7nvk4tto53e" path="res://assets/music/checkPoint.wav" id="3_r1mtt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7xdu5"]
+size = Vector2(4.5, 93)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wj8uc"]
+atlas = ExtResource("1_sk8nh")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2o5hg"]
+atlas = ExtResource("1_sk8nh")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2sy5l"]
+atlas = ExtResource("1_sk8nh")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ycoef"]
+atlas = ExtResource("1_sk8nh")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_r55nr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wj8uc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2o5hg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2sy5l")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ycoef")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="RespawnPoints" type="Area2D"]
+script = ExtResource("1_hambx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.25, -47)
+shape = SubResource("RectangleShape2D_7xdu5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(11, -16)
+sprite_frames = SubResource("SpriteFrames_r55nr")
+autoplay = "default"
+frame_progress = 0.370506
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_r1mtt")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
